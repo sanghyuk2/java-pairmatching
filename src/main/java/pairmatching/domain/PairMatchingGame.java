@@ -10,10 +10,30 @@ public class PairMatchingGame {
     }
 
     public void start() {
-        selectOption();
+        while(true) {
+            selectOption();
+            if (pairMatchingDB.isQuit()) {
+                break;
+            }
+            doMatchGame();
+        }
     }
 
     public void selectOption() {
         pairMatchingDB.selectMenu(InputView.readOption());
     }
+
+    private void doMatchGame() {
+        if (pairMatchingDB.isMatch()) {
+            System.out.println("Match");
+        }
+        if (pairMatchingDB.isSearch()) {
+            System.out.println("Search");
+        }
+        if (pairMatchingDB.isInit()) {
+            System.out.println("Init");
+        }
+    }
+
+
 }
