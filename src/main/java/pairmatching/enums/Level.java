@@ -19,5 +19,18 @@ public enum Level {
     }
 
     // 추가 기능 구현
+    public static Level findLevel(String level) {
+        return Arrays.stream(Level.values())
+                .filter(l -> l.isMatch(level))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_LEVEL.getValue()));
+    }
 
+    private boolean isMatch(String level) {
+        return this.getName().equals(level);
+    }
+
+    public String getName() {
+        return name;
+    }
 }
