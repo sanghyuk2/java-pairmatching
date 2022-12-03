@@ -1,5 +1,6 @@
 package pairmatching.util;
 
+import pairmatching.enums.Course;
 import pairmatching.enums.ErrorMessage;
 
 public class ValidateStage implements Validator{
@@ -8,6 +9,9 @@ public class ValidateStage implements Validator{
     @Override
     public void validate(String input) {
         isValidatePattern(input);
+
+        String[] inputArr = input.split(", ");
+        Course.findCourse(inputArr[0]);
     }
 
     private void isValidatePattern(String input) {
