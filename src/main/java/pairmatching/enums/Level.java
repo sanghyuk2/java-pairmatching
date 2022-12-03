@@ -30,7 +30,18 @@ public enum Level {
         return this.getName().equals(level);
     }
 
+    public void isExistMission(String mission) {
+        this.getMissions().stream()
+                .filter(m -> m.equals(mission))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_MISSION.getValue()));
+    }
+
     public String getName() {
         return name;
+    }
+
+    public List<String> getMissions() {
+        return missions;
     }
 }
