@@ -5,10 +5,12 @@ import pairmatching.view.InputView;
 
 public class PairMatchingGame {
     private final PairMatchingDB pairMatchingDB;
+    private final PairMatch pairMatch;
     private String optionNumber = "";
 
     public PairMatchingGame() {
         this.pairMatchingDB = new PairMatchingDB();
+        this.pairMatch = new PairMatch();
     }
 
     public void start() {
@@ -27,7 +29,7 @@ public class PairMatchingGame {
 
     private void doMatchGame() {
         if (isMatch()) {
-            System.out.println("Match");
+            pairMatchingDB.storePair(pairMatch.makePair());
         }
         if (isSearch()) {
             System.out.println("Search");
