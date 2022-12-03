@@ -1,9 +1,11 @@
 package pairmatching.domain;
 
+import pairmatching.enums.Menu;
 import pairmatching.view.InputView;
 
 public class PairMatchingGame {
     private final PairMatchingDB pairMatchingDB;
+    private String optionNumber = "";
 
     public PairMatchingGame() {
         this.pairMatchingDB = new PairMatchingDB();
@@ -12,7 +14,7 @@ public class PairMatchingGame {
     public void start() {
         while(true) {
             selectOption();
-            if (pairMatchingDB.isQuit()) {
+            if (isQuit()) {
                 break;
             }
             doMatchGame();
@@ -20,20 +22,35 @@ public class PairMatchingGame {
     }
 
     public void selectOption() {
-        pairMatchingDB.selectMenu(InputView.readOption());
+        optionNumber = InputView.readOption();
     }
 
     private void doMatchGame() {
-        if (pairMatchingDB.isMatch()) {
+        if (isMatch()) {
             System.out.println("Match");
         }
-        if (pairMatchingDB.isSearch()) {
+        if (isSearch()) {
             System.out.println("Search");
         }
-        if (pairMatchingDB.isInit()) {
+        if (isInit()) {
             System.out.println("Init");
         }
     }
 
+    public boolean isMatch() {
+        return Menu.findMenu(optionNumber).isMatching();
+    }
+
+    public boolean isSearch() {
+        return Menu.findMenu(optionNumber).isSearch();
+    }
+
+    public boolean isInit() {
+        return Menu.findMenu(optionNumber).isInit();
+    }
+
+    public boolean isQuit() {
+        return Menu.findMenu(optionNumber).isQuit();
+    }
 
 }
