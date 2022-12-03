@@ -1,5 +1,7 @@
 package pairmatching.enums;
 
+import java.util.Arrays;
+
 public enum Menu {
     MATCHING("1", "페어 매칭"),
     SEARCH("2", "페어 조회"),
@@ -20,5 +22,10 @@ public enum Menu {
 
     public String getMenuName() {
         return menuName;
+    }
+
+    public static boolean matchOptionNumber(String input) {
+        return Arrays.stream(Menu.values())
+                .anyMatch(option -> option.getMenuNumber().equals(input));
     }
 }
