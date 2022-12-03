@@ -28,4 +28,15 @@ public enum Menu {
         return Arrays.stream(Menu.values())
                 .anyMatch(option -> option.getMenuNumber().equals(input));
     }
+
+    public static Menu findMenu(String input) {
+        return Arrays.stream(Menu.values())
+                .filter(menu -> menu.isMatch(input))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_OPTION.getValue()));
+    }
+
+    private boolean isMatch(String input) {
+        return this.getMenuNumber().equals(input);
+    }
 }
