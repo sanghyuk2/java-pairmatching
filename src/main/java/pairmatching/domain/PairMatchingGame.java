@@ -1,11 +1,19 @@
 package pairmatching.domain;
 
+import pairmatching.view.InputView;
+
 public class PairMatchingGame {
-    public void start() {
-        while(selectOption());
+    private final PairMatchingDB pairMatchingDB;
+
+    public PairMatchingGame() {
+        this.pairMatchingDB = new PairMatchingDB();
     }
 
-    public boolean selectOption() {
-        return true;
+    public void start() {
+        selectOption();
+    }
+
+    public void selectOption() {
+        pairMatchingDB.selectMenu(InputView.readOption());
     }
 }
