@@ -13,7 +13,7 @@ public class ValidateStage implements Validator{
 
         String[] inputArr = input.split(", ");
         Course.findCourse(inputArr[0]);
-        Level.findLevel(inputArr[1]);
+        Level.findLevel(inputArr[1]).isExistMission(inputArr[2]);
     }
 
     private void isValidatePattern(String input) {
