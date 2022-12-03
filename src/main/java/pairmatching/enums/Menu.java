@@ -39,4 +39,20 @@ public enum Menu {
     private boolean isMatch(String input) {
         return this.getMenuNumber().equals(input);
     }
+
+    public boolean isMatching() {
+        return this == MATCHING;
+    }
+
+    public boolean isSearch() {
+        return this == SEARCH;
+    }
+
+    public boolean isInit() {
+        return this == INITIALIZE;
+    }
+
+    public boolean isQuit() {
+        return this == QUIT;
+    }
 }
