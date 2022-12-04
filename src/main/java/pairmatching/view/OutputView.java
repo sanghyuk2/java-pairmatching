@@ -13,4 +13,10 @@ public class OutputView {
                 "  - 레벨5: \n" +
                 "############################################");
     }
+
+    public static void printInitialized() {
+        System.out.println();
+        System.out.println("초기화 되었습니다.");
+        System.out.println();
+    }
 }
