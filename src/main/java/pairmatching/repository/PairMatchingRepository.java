@@ -1,6 +1,5 @@
 package pairmatching.repository;
 
-import pairmatching.domain.Crew;
 import pairmatching.domain.Stage;
 
 import java.util.HashMap;

@@ -1,7 +1,5 @@
 package pairmatching.view;
 
-import pairmatching.domain.Crew;
-
 import java.util.List;
 
 public class OutputView {
