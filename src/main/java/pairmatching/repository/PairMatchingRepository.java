@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PairMatchingRepository {
+public class PairMatchingRepository implements PairMatchingDB {
     private final Map<Stage, List<List<String>>> pairMatch = new HashMap<>();
 
     public boolean hasPair(Stage stage) {
