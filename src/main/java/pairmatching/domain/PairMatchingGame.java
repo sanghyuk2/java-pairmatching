@@ -30,7 +30,7 @@ public class PairMatchingGame {
     }
 
     private boolean wantQuit() {
-        return true;
+        return menuNumber.isQuit();
     }
 
 
