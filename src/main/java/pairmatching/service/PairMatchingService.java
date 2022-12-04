@@ -72,4 +72,8 @@ public class PairMatchingService {
     public List<List<String>> getPair() {
         return pairMatchingRepository.getPairMatch(stage);
     }
+
+    public void clearAll() {
+        pairMatchingRepository.clear();
+    }
 }

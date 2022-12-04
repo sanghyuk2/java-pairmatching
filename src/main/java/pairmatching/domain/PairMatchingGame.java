@@ -25,6 +25,11 @@ public class PairMatchingGame {
     }
 
     private void doMenu() {
+        if (menuNumber == Menu.INITIALIZE) {
+            pairMatchingService.clearAll();
+            OutputView.printInitialized();
+            return;
+        }
         OutputView.printStage();
         if (menuNumber == Menu.MATCHING) {
             while (pairMatchingService.isAlreadyMatched(InputView.readStage()) && isNo(InputView.readAnswer()));
