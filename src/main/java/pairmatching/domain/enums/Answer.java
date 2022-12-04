@@ -22,8 +22,4 @@ public enum Answer {
     public String getAnswer() {
         return answer;
     }
-
-    public boolean isNo() {
-        return this == NO;
-    }
 }
