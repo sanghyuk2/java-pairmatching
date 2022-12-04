@@ -27,6 +27,7 @@ public class PairMatchingGame {
         if (menuNumber == Menu.MATCHING) {
             while (pairMatchingService.isAlreadyMatched(InputView.readStage()) && isNo(InputView.readAnswer()));
             pairMatchingService.pairMatching(pairMatchingFactory.makeCrew());
+            OutputView.printResult(pairMatchingService.getPair());
         }
     }
 
