@@ -17,4 +17,8 @@ public class PairMatchingRepository {
         pairMatch.put(stage, crewList);
     }
 
+    public List<List<String>> getPairMatch(Stage stage) {
+        return pairMatch.get(stage);
+    }
+
 }
