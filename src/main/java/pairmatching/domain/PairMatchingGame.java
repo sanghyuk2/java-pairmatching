@@ -1,10 +1,13 @@
 package pairmatching.domain;
 
+import pairmatching.domain.enums.Menu;
 import pairmatching.service.PairMatchingService;
+import pairmatching.view.InputView;
 
 public class PairMatchingGame {
     private final PairMatchingService pairMatchingService = new PairMatchingService();
     private final PairMatchingFactory pairMatchingFactory = new PairMatchingFactory();
+    private Menu menuNumber;
 
     public void start() {
         while (selectMenu());
@@ -22,6 +25,7 @@ public class PairMatchingGame {
     }
 
     private boolean select() {
+        menuNumber = Menu.findMenu(InputView.readMenuNumber());
         return true;
     }
 
