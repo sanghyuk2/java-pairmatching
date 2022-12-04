@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 public class PairMatchingFactory {
-    private final Map<Course, List<Crew>> crewMap = new HashMap<>();
+    private final Map<Course, List<String>> crewMap = new HashMap<>();
 
-    public Map<Course, List<Crew>> makeCrew() {
+    public Map<Course, List<String>> makeCrew() {
         try {
             makeFrontEndCrew();
             makeBackEndCrew();
@@ -26,22 +26,22 @@ public class PairMatchingFactory {
     }
 
     private void makeFrontEndCrew() throws IOException {
-        List<Crew> frontEndCrew = new ArrayList<>();
+        List<String> frontEndCrew = new ArrayList<>();
         BufferedReader reader = readFile(new File("src/main/resources/frontend-crew.md"));
         String name;
         while ((name = reader.readLine()) != null) {
-            frontEndCrew.add(new Crew(Course.FRONTEND, name));
+            frontEndCrew.add(name);
         }
         crewMap.put(Course.FRONTEND, frontEndCrew);
         reader.close();
     }
 
     private void makeBackEndCrew() throws IOException {
-        List<Crew> backEndCrew = new ArrayList<>();
+        List<String> backEndCrew = new ArrayList<>();
         BufferedReader reader = readFile(new File("src/main/resources/backend-crew.md"));
         String name;
         while ((name = reader.readLine()) != null) {
-            backEndCrew.add(new Crew(Course.BACKEND, name));
+            backEndCrew.add(name);
         }
         crewMap.put(Course.BACKEND, backEndCrew);
         reader.close();

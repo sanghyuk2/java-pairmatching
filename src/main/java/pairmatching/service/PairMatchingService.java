@@ -1,6 +1,5 @@
 package pairmatching.service;
 
-import pairmatching.domain.Crew;
 import pairmatching.domain.Stage;
 import pairmatching.domain.enums.Course;
 import pairmatching.domain.enums.Level;
@@ -22,8 +21,8 @@ public class PairMatchingService {
         return pairMatchingRepository.hasPair(stage);
     }
 
-    public void pairMatching(Map<Course, List<Crew>> courseListMap) {
-        List<Crew> shuffledCrewList = shuffle(courseListMap.get(stage.getCourse()));
+    public void pairMatching(Map<Course, List<String>> courseListMap) {
+        List<String> shuffledCrewList = shuffle(courseListMap.get(stage.getCourse()));
 
         if (shuffledCrewList.size() % 2 == 0) {
             pairMatchingRepository.storePair(stage, makeEven(shuffledCrewList));
@@ -33,34 +32,24 @@ public class PairMatchingService {
         }
     }
 
-    private List<List<String>> makeEven(List<Crew> shuffledCrewList) {
-        List<String> crewName = new ArrayList<>();
+    private List<List<String>> makeEven(List<String> shuffledCrewList) {
         List<List<String>> evenPair = new ArrayList<>();
 
-        for (Crew crew : shuffledCrewList) {
-            crewName.add(String.valueOf(crew.getName()));
-        }
-
-        for (int i = 0; i < crewName.size(); i += 2) {
-            evenPair.add(crewName.subList(i, Math.min(i + 2, crewName.size())));
+        for (int i = 0; i < shuffledCrewList.size(); i += 2) {
+            evenPair.add(shuffledCrewList.subList(i, Math.min(i + 2, shuffledCrewList.size())));
         }
 
         return evenPair;
     }
 
-    private List<List<String>> makeOdd(List<Crew> shuffledCrewList) {
-        List<String> crewName = new ArrayList<>();
+    private List<List<String>> makeOdd(List<String> shuffledCrewList) {
         List<List<String>> oddPair = new ArrayList<>();
 
-        for (Crew crew : shuffledCrewList) {
-            crewName.add(crew.getName());
+        for (int i = 0; i < shuffledCrewList.size() - 3; i += 2) {
+            oddPair.add(shuffledCrewList.subList(i, Math.min(i + 2, shuffledCrewList.size() - 3)));
         }
 
-        for (int i = 0; i < crewName.size() - 3; i += 2) {
-            oddPair.add(crewName.subList(i, Math.min(i + 2, crewName.size() - 3)));
-        }
-
-        oddPair.add(crewName.subList(crewName.size() - 3, crewName.size()));
+        oddPair.add(shuffledCrewList.subList(shuffledCrewList.size() - 3, shuffledCrewList.size()));
 
         return oddPair;
     }
