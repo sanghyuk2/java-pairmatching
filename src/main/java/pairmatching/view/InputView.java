@@ -1,5 +1,6 @@
 package pairmatching.view;
 
+import pairmatching.util.ValidateAnswer;
 import pairmatching.util.ValidateMenuNumber;
 import pairmatching.util.ValidateStage;
 import pairmatching.util.Validator;
@@ -18,6 +19,11 @@ public class InputView {
     public static String readStage() {
         return validateInput("과정, 레벨, 미션을 선택하세요.\n" +
                 "ex) 백엔드, 레벨1, 자동차경주", new ValidateStage());
+    }
+
+    public static String readAnswer() {
+        return validateInput("\n매칭 정보가 있습니다. 다시 매칭하시겠습니까?\n" +
+                "네 | 아니오", new ValidateAnswer());
     }
 
     private static String validateInput(String message, Validator validate) {
