@@ -4,4 +4,8 @@ import pairmatching.repository.PairMatchingRepository;
 
 public class PairMatchingService {
     private final PairMatchingRepository pairMatchingRepository = new PairMatchingRepository();
+
+    public boolean isAlreadyMatched(String readStage) {
+        return true;
+    }
 }

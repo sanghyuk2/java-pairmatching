@@ -3,6 +3,7 @@ package pairmatching.domain;
 import pairmatching.domain.enums.Menu;
 import pairmatching.service.PairMatchingService;
 import pairmatching.view.InputView;
+import pairmatching.view.OutputView;
 
 public class PairMatchingGame {
     private final PairMatchingService pairMatchingService = new PairMatchingService();
@@ -21,7 +22,14 @@ public class PairMatchingGame {
     }
 
     private void doMenu() {
+        OutputView.printStage();
+        if (menuNumber == Menu.MATCHING) {
+            while (pairMatchingService.isAlreadyMatched(InputView.readStage()) && isNo(InputView.readAnswer()));
+        }
+    }
 
+    private boolean isNo(String answer) {
+        return true;
     }
 
     private boolean select() {
