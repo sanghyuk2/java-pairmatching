@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class PairMatchingRepository {
-    private Map<Stage, List<List<String>>> pairMatch = new HashMap<>();
+    private final Map<Stage, List<List<String>>> pairMatch = new HashMap<>();
 
     public boolean hasPair(Stage stage) {
         return pairMatch.containsKey(stage);
