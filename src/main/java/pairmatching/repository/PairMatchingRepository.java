@@ -13,4 +13,8 @@ public class PairMatchingRepository {
         return pairMatch.containsKey(stage);
     }
 
+    public void storePair(Stage stage, List<List<String>> crewList) {
+        pairMatch.put(stage, crewList);
+    }
+
 }
