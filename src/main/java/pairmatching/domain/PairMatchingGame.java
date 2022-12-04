@@ -1,6 +1,10 @@
 package pairmatching.domain;
 
+import pairmatching.service.PairMatchingService;
+
 public class PairMatchingGame {
+    private final PairMatchingService pairMatchingService = new PairMatchingService();
+
     public void start() {
         while (selectMenu());
     }
