@@ -4,6 +4,7 @@ import pairmatching.service.PairMatchingService;
 
 public class PairMatchingGame {
     private final PairMatchingService pairMatchingService = new PairMatchingService();
+    private final PairMatchingFactory pairMatchingFactory = new PairMatchingFactory();
 
     public void start() {
         while (selectMenu());
