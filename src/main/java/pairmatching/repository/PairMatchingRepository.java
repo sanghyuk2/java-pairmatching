@@ -21,4 +21,8 @@ public class PairMatchingRepository {
         return pairMatch.get(stage);
     }
 
+    public void clear() {
+        pairMatch.clear();
+    }
+
 }
