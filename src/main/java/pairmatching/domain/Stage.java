@@ -29,14 +29,6 @@ public class Stage {
         return Objects.hash(course, level, mission);
     }
 
-    public Level getLevel() {
-        return level;
-    }
-
-    public String getMission() {
-        return mission;
-    }
-
     public Course getCourse() {
         return course;
     }
