@@ -1,6 +1,8 @@
 package pairmatching.domain;
 
 import pairmatching.domain.enums.Answer;
+import pairmatching.domain.enums.Course;
+import pairmatching.domain.enums.Level;
 import pairmatching.domain.enums.Menu;
 import pairmatching.service.PairMatchingService;
 import pairmatching.view.InputView;
@@ -28,6 +30,11 @@ public class PairMatchingGame {
             while (pairMatchingService.isAlreadyMatched(InputView.readStage()) && isNo(InputView.readAnswer()));
             pairMatchingService.pairMatching(pairMatchingFactory.makeCrew());
             OutputView.printResult(pairMatchingService.getPair());
+        }
+        if (menuNumber == Menu.SEARCH) {
+            String[] stageArr = InputView.readStage().split(", ");
+            Stage stage = new Stage(Course.findCourse(stageArr[0]), Level.findLevel(stageArr[1]), stageArr[2]);
+            OutputView.printResult(pairMatchingService.searchPair(stage));
         }
     }
 

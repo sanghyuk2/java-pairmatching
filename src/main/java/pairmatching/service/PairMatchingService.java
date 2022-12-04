@@ -65,6 +65,10 @@ public class PairMatchingService {
         return oddPair;
     }
 
+    public List<List<String>> searchPair(Stage stage) {
+        return pairMatchingRepository.getPairMatch(stage);
+    }
+
     public List<List<String>> getPair() {
         return pairMatchingRepository.getPairMatch(stage);
     }
