@@ -1,5 +1,7 @@
 package pairmatching.view;
 
+import java.util.List;
+
 public class OutputView {
     public static void printStage() {
         System.out.println();
@@ -17,6 +19,19 @@ public class OutputView {
     public static void printInitialized() {
         System.out.println();
         System.out.println("초기화 되었습니다.");
+        System.out.println();
+    }
+
+    public static void printResult(List<List<String>> pair) {
+        System.out.println();
+        System.out.println("페어 매칭 결과입니다.");
+        if (pair == null) {
+            System.out.println();
+            return;
+        }
+        for (List<String> pairs : pair) {
+            System.out.println(String.join(" : ", pairs));
+        }
         System.out.println();
     }
 }
