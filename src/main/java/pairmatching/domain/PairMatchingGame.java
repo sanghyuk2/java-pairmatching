@@ -1,5 +1,6 @@
 package pairmatching.domain;
 
+import pairmatching.domain.enums.Answer;
 import pairmatching.domain.enums.Menu;
 import pairmatching.service.PairMatchingService;
 import pairmatching.view.InputView;
@@ -29,7 +30,7 @@ public class PairMatchingGame {
     }
 
     private boolean isNo(String answer) {
-        return true;
+        return Answer.findAnswer(answer) == Answer.NO;
     }
 
     private boolean select() {
@@ -40,7 +41,4 @@ public class PairMatchingGame {
     private boolean wantQuit() {
         return menuNumber.isQuit();
     }
-
-
-
 }
