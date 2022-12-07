@@ -1,9 +1,9 @@
 package pairmatching.view;
 
-import pairmatching.util.ValidateAnswer;
-import pairmatching.util.ValidateMenuNumber;
-import pairmatching.util.ValidateStage;
-import pairmatching.util.Validator;
+import pairmatching.validator.ValidateAnswer;
+import pairmatching.validator.ValidateMenuNumber;
+import pairmatching.validator.ValidateStage;
+import pairmatching.validator.Validator;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 

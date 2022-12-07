@@ -32,7 +32,6 @@ public class OutputView {
         for (List<String> strings : pair) {
             System.out.println(String.join(" : ", strings));
         }
-
         System.out.println();
     }
 }
