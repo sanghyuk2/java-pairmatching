@@ -1,4 +1,4 @@
-package pairmatching.util;
+package pairmatching.validator;
 
 import pairmatching.domain.enums.Course;
 import pairmatching.domain.enums.Level;
